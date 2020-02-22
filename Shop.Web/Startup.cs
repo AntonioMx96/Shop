@@ -28,6 +28,11 @@ namespace Shop.Web
             services.AddControllersWithViews();
             var connection = "Server=(localdb)\\ProjectsV13;Database=Shop;Trusted_Connection=True;MultipleActiveResultSets=true";
             services.AddDbContext<DataContext>(options => options.UseSqlServer(connection));
+
+            services.AddTransient<SeedDb>();
+
+            services.AddScoped<IRepository, Repository>();
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
